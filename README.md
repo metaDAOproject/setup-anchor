@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - uses: metadaoproject/setup-anchor@v1.1
+      - uses: metadaoproject/setup-anchor@v1.2
       - run: anchor build
         shell: bash
 ```
@@ -24,10 +24,10 @@ This will use the default versions of Anchor, Node.js, and the Solana CLI tools,
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: metadaoproject/setup-anchor@v1.1
+  - uses: metadaoproject/setup-anchor@v1.2
     with: 
-      anchor-version: '0.24.2' 
-      solana-cli-version: '1.10.32'
+      anchor-version: '0.28.0' 
+      solana-cli-version: '1.14.20'
       node-version: '16.15.1'
 ```
 

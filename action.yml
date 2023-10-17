@@ -11,11 +11,11 @@ inputs:
   solana-cli-version:
     description: 'Version of Solana CLI to use'
     required: false
-    default: '1.15.2' # stable
+    default: '1.17.1' 
   anchor-version:
     description: 'Version of Anchor to use'
     required: false
-    default: '0.27.0' # latest
+    default: '0.29.0' # latest
 runs:
   using: 'composite'
   steps:
@@ -36,6 +36,6 @@ runs:
       run: echo "/home/runner/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH 
       shell: bash
     - name: Install Anchor
-      run: npm i -g @project-serum/anchor-cli@${{ inputs.anchor-version }}
+      run: npm i -g @coral-xyz/anchor-cli@${{ inputs.anchor-version }}
       shell: bash
 
