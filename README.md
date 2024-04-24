@@ -24,7 +24,7 @@ This will use the default versions of Anchor, Node.js, and the Solana CLI tools,
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: metadaoproject/setup-anchor@v1.2
+  - uses: metadaoproject/setup-anchor@v2
     with: 
       anchor-version: '0.28.0' 
       solana-cli-version: '1.14.20'
