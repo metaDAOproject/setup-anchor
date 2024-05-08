@@ -2,6 +2,8 @@
 
 An optimized action for installing [Anchor](https://www.anchor-lang.com/).
 
+If you just need Solana (without Anchor), you should also check out [Setup Solana](https://github.com/metaDAOproject/setup-solana).
+
 # Usage
 
 Here's an example workflow:
