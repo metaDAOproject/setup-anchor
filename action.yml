@@ -39,3 +39,7 @@ runs:
         avm install ${{ inputs.anchor-version }}
         avm use ${{ inputs.anchor-version }}
       shell: bash
+    - name: Set Anchor Version
+      run: |
+        avm use ${{ inputs.anchor-version }}
+      shell: bash
