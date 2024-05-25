@@ -33,5 +33,8 @@ runs:
           ~/.cargo/bin/avm
         key: anchor-cli-${{ runner.os }}-build-${{ inputs.anchor-version }}
     - name: Install Anchor
-      run: npm i -g @coral-xyz/anchor-cli@${{ inputs.anchor-version }}
+      run: |
+        cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+        avm install ${{ inputs.anchor-version }}
+        avm use ${{ inputs.anchor-version }}
       shell: bash
