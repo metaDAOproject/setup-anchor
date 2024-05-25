@@ -29,8 +29,7 @@ runs:
     - uses: actions/cache@v4
       with:
         path: |
-          ~/.cargo/bin/anchor
-          ~/.cargo/bin/avm
+          ~/.cargo/bin/
         key: anchor-cli-${{ runner.os }}-build-${{ inputs.anchor-version }}
     - name: Install Anchor
       run: |
