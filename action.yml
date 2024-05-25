@@ -31,6 +31,7 @@ runs:
       with:
         path: |
           ~/.cargo/bin/
+          ~/.avm
         key: anchor-cli-${{ runner.os }}-build-${{ inputs.anchor-version }}
     - name: Install Anchor
       if: steps.cache-anchor.outputs.cache-hit != 'true'
