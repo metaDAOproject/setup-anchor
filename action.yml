@@ -7,15 +7,15 @@ inputs:
   node-version:
     description: 'Version of node.js to use'
     required: false
-    default: '16.15.1' # LTS
+    default: '20.16.0' # LTS
   solana-cli-version:
     description: 'Version of Solana CLI to use'
     required: false
-    default: '1.17.1' 
+    default: '1.18.18' 
   anchor-version:
     description: 'Version of Anchor to use'
     required: false
-    default: '0.29.0' # latest
+    default: '0.30.1' # latest
 runs:
   using: 'composite'
   steps:
