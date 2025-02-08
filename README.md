@@ -26,11 +26,11 @@ This will use the default versions of Anchor, Node.js, and the Solana CLI tools,
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: metadaoproject/setup-anchor@v2
-    with: 
-      anchor-version: '0.28.0' 
-      solana-cli-version: '1.14.20'
-      node-version: '16.15.1'
+  - uses: metadaoproject/setup-anchor@v3.1
+    with:
+      anchor-version: '0.30.1'
+      solana-cli-version: '1.18.18' # Set it to 2.x.x to use the Anza release
+      node-version: '20.16.0'
 ```
 
 # License
