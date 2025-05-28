@@ -11,7 +11,7 @@ inputs:
   solana-cli-version:
     description: 'Version of Solana CLI to use'
     required: false
-    default: '1.17.1' 
+    default: '1.17.16' 
   anchor-version:
     description: 'Version of Anchor to use'
     required: false
