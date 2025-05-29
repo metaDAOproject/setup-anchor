@@ -31,12 +31,15 @@ runs:
         key: solana-cli-${{ runner.os }}-build-${{ inputs.solana-cli-version }}
     - name: Install Solana CLI tools
       run: |
-        cd $HOME
-        wget https://github.com/solana-labs/solana/releases/download/v${{ inputs.solana-cli-version }}/solana-release-x86_64-unknown-linux-gnu.tar.bz2
-        tar jxf solana-release-x86_64-unknown-linux-gnu.tar.bz2
-      shell: bash
-    - name: Update PATH
-      run: echo "$HOME/solana-release/bin" >> $GITHUB_PATH 
+        if [[ "${{ inputs.solana-cli-version }}" == 1* ]]; then
+          cd $HOME
+          wget https://github.com/solana-labs/solana/releases/download/v${{ inputs.solana-cli-version }}/solana-release-x86_64-unknown-linux-gnu.tar.bz2
+          tar jxf solana-release-x86_64-unknown-linux-gnu.tar.bz2
+          echo "$HOME/solana-release/bin" >> $GITHUB_PATH
+        else
+          sh -c "$(curl -sSfL https://release.anza.xyz/v${{ inputs.solana-cli-version }}/install)"
+          echo "/home/runner/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+        fi
       shell: bash
     - name: Install Anchor
       run: npm i -g @coral-xyz/anchor-cli@${{ inputs.anchor-version }}
