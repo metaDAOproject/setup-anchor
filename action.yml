@@ -7,15 +7,15 @@ inputs:
   node-version:
     description: 'Version of node.js to use'
     required: false
-    default: '20.16.0' # LTS
+    default: '20.11.0' # LTS
   solana-cli-version:
     description: 'Version of Solana CLI to use'
     required: false
-    default: '1.18.18' 
+    default: '1.17.16' 
   anchor-version:
     description: 'Version of Anchor to use'
     required: false
-    default: '0.30.1' # latest
+    default: '0.29.0' # latest
 runs:
   using: 'composite'
   steps:
@@ -30,18 +30,17 @@ runs:
           ~/.local/share/solana/
         key: solana-cli-${{ runner.os }}-build-${{ inputs.solana-cli-version }}
     - name: Install Solana CLI tools
-      # Use the old solana.com release if the version starts with 1, Anza otherwise
       run: |
         if [[ "${{ inputs.solana-cli-version }}" == 1* ]]; then
-          sh -c "$(curl -sSfL https://release.solana.com/v${{ inputs.solana-cli-version }}/install)"
+          cd $HOME
+          wget https://github.com/solana-labs/solana/releases/download/v${{ inputs.solana-cli-version }}/solana-release-x86_64-unknown-linux-gnu.tar.bz2
+          tar jxf solana-release-x86_64-unknown-linux-gnu.tar.bz2
+          echo "$HOME/solana-release/bin" >> $GITHUB_PATH
         else
           sh -c "$(curl -sSfL https://release.anza.xyz/v${{ inputs.solana-cli-version }}/install)"
+          echo "/home/runner/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
         fi
-      shell: bash
-    - name: Update PATH
-      run: echo "/home/runner/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH 
       shell: bash
     - name: Install Anchor
       run: npm i -g @coral-xyz/anchor-cli@${{ inputs.anchor-version }}
       shell: bash
-
