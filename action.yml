@@ -11,11 +11,11 @@ inputs:
   solana-cli-version:
     description: 'Version of Solana CLI to use'
     required: false
-    default: '1.17.16' 
+    default: '2.2.21' 
   anchor-version:
     description: 'Version of Anchor to use'
     required: false
-    default: '0.29.0' # latest
+    default: '0.31.1' # latest
 runs:
   using: 'composite'
   steps:
